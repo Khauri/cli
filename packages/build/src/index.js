@@ -49,7 +49,8 @@ exports.loadWebpackConfig = options => {
 const configBuilder = (exports.configBuilder = ({
   entry,
   production = true,
-  output = "build"
+  output = "build",
+  public = "/assets/"
 }) => {
   const ENTRY_IS_DIR = fs.statSync(entry).isDirectory();
   const ENTRY_FILENAME_TEMPLATE = `[${
@@ -62,7 +63,7 @@ const configBuilder = (exports.configBuilder = ({
   const MODE = production ? "production" : "development";
   const BUILD_PATH = path.resolve(CWD, output);
   const ASSETS_PATH = path.join(BUILD_PATH, "assets");
-  const PUBLIC_PATH = "/assets/";
+  const PUBLIC_PATH = public;
   const APP_DIR = ENTRY_IS_DIR ? entry : path.dirname(entry);
   const CONTEXT = APP_DIR.startsWith(ROOT) ? ROOT : APP_DIR;
   const markoPlugin = new MarkoPlugin();
