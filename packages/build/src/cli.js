@@ -31,6 +31,10 @@ exports.parse = function parse(argv) {
         type: "boolean",
         description: "Build a static HTML site"
       },
+      "--public": {
+        type: "string",
+        description: "The base path for all the assets within the application"
+      },
       "--version -v": {
         type: "boolean",
         descrption: `print ${details.name} version`
